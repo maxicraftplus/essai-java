@@ -1,66 +1,37 @@
 package cours;
 
-import java.util.Scanner;
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		boolean leafRepertory = true;
+		JFrame window = new JFrame();
 		
-		String repertory[][] = {
-			{
-				"maxime",
-				"12",
-				"maxitrompette@ymail.com",
-				"0769317415",
-				"true"
-			},
-			{
-				"dwaps",
-				"36",
-				"contact@dwaps.fr",
-				"0651279211",
-				"true"
-			},
-			{
-				"schtroumpfette",
-				"15",
-				"schtroupfette@gmail.com",
-				"0000000000",
-				"false"
-			}
-		};
+		window.setSize(500, 500);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setTitle("MAXIME");
+		window.setAlwaysOnTop(true);
+		window.setLocationRelativeTo(null);
 		
-		while (leafRepertory) {
-			System.out.println("Qui cherchez-vous ?");
-			String prenom = sc.nextLine();
-			boolean found = false;
-			
-			for (String[] contact : repertory) {
-				for (String detail : contact) {
-					if (detail.equals(prenom)) {
-						found = true;
-						for (int i = 0; i < contact.length; i++) {
-							System.out.println(contact[i]);
-						}
-					}
-				}
-			}
-			
-			if (!found) {
-				System.out.println("désolé cette personne ne fait pas partie des contacts");
-			}
-			
-			System.out.println("souhaitez vous faire une autre recherche? [On]");
-			String reponse = sc.nextLine();
-			
-			if (reponse.equals("n")) {
-				leafRepertory = false;
-				System.out.println("fermez avec succès. à bientôt.");
-			}
-		}
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.blue);
 		
-		sc.close();
+		Panel pan = new Panel();
+		
+		window.setContentPane(pan);
+		window.setVisible(true);
 	}
 }
+
+class Panel extends JPanel {
+	public void paintComponent(Graphics g) {
+		
+			
+			g.drawString("coucou", 100, 100);
+			
+		}
+	}
